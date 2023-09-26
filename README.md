@@ -11,9 +11,9 @@ This is the first version of the project. It is a simple script that automates t
 ## How to Use
 
 1. Open the `script.py` file.
-2. Enter your email and password in the appropriate fields (line 20 and 21).
-3. Enter the project link in it's field (line 40).
-4. Enter the path of your ALX projects directory in it's field (file_creator file, line 11).
+2. Enter your email and password in the appropriate fields (line 8 and 9).
+3. Enter the project link in it's field (line 10).
+4. Enter the path of your ALX projects directory in it's field (line 11).
 5. Run the script.
 
 

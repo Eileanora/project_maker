@@ -3,7 +3,13 @@ from bs4 import BeautifulSoup
 from file_creator import make_files
 
 def scrapping():
-    # URL of the login page
+
+    # Get nessaary data from user
+    email = "your intranet email" # <===================
+    password = "your intranet password" # <===================
+    tasks_url = 'your task link' # <===================
+    base_dir = "/home/yasmeen/Documents/vs-folders/ALX" # change this to your base directory
+
     login_url = 'https://intranet.alxswe.com/auth/sign_in'
 
     # Create a session
@@ -15,10 +21,6 @@ def scrapping():
 
     # Extract the authenticity token from the form
     authenticity_token = soup.find('input', {'name': 'authenticity_token'}).get('value')
-
-    # Get the login credentials
-    email = "your intranet email" # <===================
-    password = "your intranet password" # <===================
 
     data = {
         'authenticity_token': authenticity_token,
@@ -37,7 +39,6 @@ def scrapping():
     # if login successful, go on with the script
     print('Login successful')
 
-    tasks_url = 'your task link' # <===================
     # Send a GET request to retrieve the tasks page
     response = session.get(tasks_url)
     soup = BeautifulSoup(response.content, 'html.parser')
@@ -71,7 +72,7 @@ def scrapping():
         print(f"File: {file_name}")
         print()
 
-    make_files(repository, directory, files)
+    make_files(repository, directory, files, base_dir)
     session.close()
 
 

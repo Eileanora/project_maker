@@ -1,14 +1,13 @@
 import os
 from pathlib import Path
 
-def make_files(repository="", directory="", files=[]):
+def make_files(repository="", directory="", files=[], base_dir=""):
     # if repo and dir are given valid
     if repository == "" or directory == "":
         print("No repo or dir given")
         exit()
     
     # create the paths to check
-    base_dir = "/home/yasmeen/Documents/vs-folders/ALX" # <=================== change this to your base directory
     repo_dir = Path(base_dir) / repository
     task_dir = Path(repo_dir) / directory
 
