@@ -34,9 +34,9 @@ def scrapping():
         print('Login failed')
         exit()
 
-    # incase of successful login
+    # if login successful, go on with the script
     print('Login successful')
-    # Continue with other actions on the website
+
     tasks_url = 'your task link' # <===================
     # Send a GET request to retrieve the tasks page
     response = session.get(tasks_url)
@@ -49,7 +49,6 @@ def scrapping():
     repository = ""
     directory = ""
     files = []
-    i = 0
     for task in task_elements:
         # Extract GitHub repository, directory, and file names
         info_elements = task.find_all('li')
@@ -72,7 +71,6 @@ def scrapping():
         print(f"File: {file_name}")
         print()
 
-        # Continue with other actions for the current task
     make_files(repository, directory, files)
     session.close()
 
