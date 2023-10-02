@@ -32,4 +32,4 @@ Please note that this script is just a basic script that was designed for a spec
 ## Change Log
 - if file exists, skip -> (doesn't replace it anymore)
 - if one task contain multiple files, it will create them all -> (doesn't create only the first one anymore)
-- Add learning objectives and resources if available to the README.md file
+- Add learning objectives and resources and concepts if available to the README.md file

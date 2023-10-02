@@ -7,7 +7,7 @@ def scrapping():
     # Get nessaary data from user
     email = "your intranet email" # <===================
     password = "your password" # <===================
-    tasks_url = 'tasks link' # <===================
+    tasks_url = 'task link' # <===================
     base_dir = "/home/yasmeen/Documents/vs-folders/ALX" # change this to your base directory
 
     login_url = 'https://intranet.alxswe.com/auth/sign_in'
