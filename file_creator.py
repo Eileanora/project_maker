@@ -36,9 +36,9 @@ def make_readme(directory="", soup=None):
 
     #Extract concept pages if they exist
     resources_element_tag = soup.select_one('div.panel-body:has(p:-soup-contains("For this project, we expect you to look at these concepts:"))')
-    for a_tag in resources_element_tag.find_all('a'):
-        a_tag['href'] = 'https://intranet.alxswe.com' + a_tag['href']
     if resources_element_tag:
+        for a_tag in resources_element_tag.find_all('a'):
+            a_tag['href'] = 'https://intranet.alxswe.com' + a_tag['href']
         concept_pages = resources_element_tag.find_all('li')
 
     # Extract Resources and learning objectives if they exist
