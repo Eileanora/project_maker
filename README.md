@@ -28,3 +28,8 @@ Once you have entered your email and password, as well as the project link, the 
 To use this script, you will need to manually enter your email and password in the appropriate fields in the script. You will also need to enter the project link. Once you have done this, simply run the script and it will take care of the rest. 
 
 Please note that this script is just a basic script that was designed for a specific website and a specific task.
+
+## Change Log
+- if file exists, skip -> (doesn't replace it anymore)
+- if one task contain multiple files, it will create them all -> (doesn't create only the first one anymore)
+- Add learning objectives and resources if available to the README.md file

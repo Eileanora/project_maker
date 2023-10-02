@@ -6,8 +6,8 @@ def scrapping():
 
     # Get nessaary data from user
     email = "your intranet email" # <===================
-    password = "your intranet password" # <===================
-    tasks_url = 'your task link' # <===================
+    password = "your password" # <===================
+    tasks_url = 'tasks link' # <===================
     base_dir = "/home/yasmeen/Documents/vs-folders/ALX" # change this to your base directory
 
     login_url = 'https://intranet.alxswe.com/auth/sign_in'
@@ -54,17 +54,18 @@ def scrapping():
         # Extract GitHub repository, directory, and file names
         info_elements = task.find_all('li')
 
-        # Check if the elements exist and extract their text
-        repo_name = info_elements[0].find('code').text if info_elements else 'N/A'
-        dir_name = info_elements[1].find('code').text if info_elements else 'N/A'
-        file_name = info_elements[2].find('code').text if info_elements else 'N/A'
+    # Check if the elements exist and extract their text
+    repo_name = info_elements[0].find('code').text if info_elements else 'N/A'
+    dir_name = info_elements[1].find('code').text if info_elements else 'N/A'
+    file_names = info_elements[2].find('code').text if info_elements else 'N/A'
 
-        if repository == "" and repo_name != "N/A":
-            repository = repo_name
-        if directory == "" and dir_name != "N/A":
-            directory = dir_name
-        if file_name != 'N/A':
-            files.append(file_name)
+    if repository == "" and repo_name != "N/A":
+        repository = repo_name
+    if directory == "" and dir_name != "N/A":
+        directory = dir_name
+    if file_names != 'N/A':
+        for file_name in file_names.split(', '):
+            files.append(file_name.strip())
 
         # Print the extracted information for the current task (just to check it's valid)
         print(f"Repository: {repo_name}")
@@ -72,9 +73,8 @@ def scrapping():
         print(f"File: {file_name}")
         print()
 
-    make_files(repository, directory, files, base_dir)
+    make_files(repository, directory, files, base_dir, soup)
     session.close()
-
 
 if __name__ == "__main__":
     scrapping()
