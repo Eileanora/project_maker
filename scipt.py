@@ -54,18 +54,18 @@ def scrapping():
         # Extract GitHub repository, directory, and file names
         info_elements = task.find_all('li')
 
-    # Check if the elements exist and extract their text
-    repo_name = info_elements[0].find('code').text if info_elements else 'N/A'
-    dir_name = info_elements[1].find('code').text if info_elements else 'N/A'
-    file_names = info_elements[2].find('code').text if info_elements else 'N/A'
+        # Check if the elements exist and extract their text
+        repo_name = info_elements[0].find('code').text if info_elements else 'N/A'
+        dir_name = info_elements[1].find('code').text if info_elements else 'N/A'
+        file_names = info_elements[2].find('code').text if info_elements else 'N/A'
 
-    if repository == "" and repo_name != "N/A":
-        repository = repo_name
-    if directory == "" and dir_name != "N/A":
-        directory = dir_name
-    if file_names != 'N/A':
-        for file_name in file_names.split(', '):
-            files.append(file_name.strip())
+        if repository == "" and repo_name != "N/A":
+            repository = repo_name
+        if directory == "" and dir_name != "N/A":
+            directory = dir_name
+        if file_names != 'N/A':
+            for file_name in file_names.split(', '):
+                files.append(file_name.strip())
 
         # Print the extracted information for the current task (just to check it's valid)
         print(f"Repository: {repo_name}")
