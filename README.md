@@ -1,6 +1,7 @@
 # project_maker
 
 This is the first version of the project. It is a simple script that automates the process of creating intranet project files because i hate creating them one by one.
+It creates tasks files and it's readme and fill it with learning objectives and resources and concepts if available.
 
 ## Prerequisites
 
@@ -30,6 +31,4 @@ To use this script, you will need to manually enter your email and password in t
 Please note that this script is just a basic script that was designed for a specific website and a specific task.
 
 ## Change Log
-- if file exists, skip -> (doesn't replace it anymore)
-- if one task contain multiple files, it will create them all -> (doesn't create only the first one anymore)
-- Add learning objectives and resources and concepts if available to the README.md file
+- Fixed exception that occures if a task doesn't have file specified for it.
