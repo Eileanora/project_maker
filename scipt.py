@@ -54,24 +54,31 @@ def scrapping():
         # Extract GitHub repository, directory, and file names
         info_elements = task.find_all('li')
 
+        repo_name = None
+        dir_name = None
+        file_names = None 
         # Check if the elements exist and extract their text
-        repo_name = info_elements[0].find('code').text if info_elements else 'N/A'
-        dir_name = info_elements[1].find('code').text if info_elements else 'N/A'
-        file_names = info_elements[2].find('code').text if info_elements else 'N/A'
+        try:
+            repo_name = info_elements[0].find('code').text if info_elements else 'N/A'
+            dir_name = info_elements[1].find('code').text if info_elements else 'N/A'
+            file_names = info_elements[2].find('code').text if info_elements else 'N/A'
+        except IndexError:
+            pass
 
         if repository == "" and repo_name != "N/A":
             repository = repo_name
         if directory == "" and dir_name != "N/A":
             directory = dir_name
-        if file_names != 'N/A':
+        if file_names:
             for file_name in file_names.split(', '):
-                files.append(file_name.strip())
+                if file_name.strip() != "N/A":
+                    files.append(file_name.strip())
 
-        # Print the extracted information for the current task (just to check it's valid)
-        print(f"Repository: {repo_name}")
-        print(f"Directory: {dir_name}")
-        print(f"File: {file_name}")
-        print()
+            # Print the extracted information for the current task (just to check it's valid)
+            print(f"Repository: {repo_name}")
+            print(f"Directory: {dir_name}")
+            print(f"File: {file_name}")
+            print()
 
     make_files(repository, directory, files, base_dir, soup)
     session.close()
