@@ -32,3 +32,4 @@ Please note that this script is just a basic script that was designed for a spec
 
 ## Change Log
 - Fixed exception that occures if a task doesn't have file specified for it.
+- Resources links were missing a part of it, fixed that. it is recommended to rerun the script on previous projects to fix the links.
