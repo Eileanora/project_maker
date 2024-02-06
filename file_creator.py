@@ -22,6 +22,10 @@ def make_files(repository="", directory="", files=[], base_dir="", soup=None):
 
     # create tasks files
     for file_name in files:
+        path = file_name.split('/')
+        if len(path) > 1:
+            # create the folders
+            os.makedirs(Path(task_dir) / Path(*path[:-1]), exist_ok=True)
         if not Path(file_name).exists():
             open(file_name, 'w').close()
 
