@@ -17,6 +17,8 @@ It creates tasks files and it's readme and fill it with learning objectives and 
 4. Enter the path of your ALX projects directory in it's field (line 11).
 5. Run the script.
 
+https://github.com/Eileanora/project_maker/assets/96462150/c7000d63-61a5-49c1-8edb-777d2015353a
+
 
 ## How it Works
 
